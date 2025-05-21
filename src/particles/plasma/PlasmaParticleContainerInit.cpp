@@ -163,7 +163,11 @@ InitParticles (const amrex::RealVect& a_u_std,
                         y >= a_bounds.hi(1) || y < a_bounds.lo(1) ||
                         rsq > a_radius*a_radius ||
                         rsq < a_hollow_core_radius*a_hollow_core_radius ||
-                        density_func(x, y, c_t) <= min_density) continue;
+                        density_func(x, y, c_t) <= min_density) {
+                            std::cout << "Particle not in bounds : x = " << x
+                                      << ", y = " << y << std::endl;
+                            continue;
+                        }
 
                     num_particles_cell += 1;
                 }
