@@ -849,6 +849,8 @@ MultiLaser::InitLaserSlice (const int islice, const int comp)
                     arr(i, j, k, comp + 1 ) += arr_ff(i, j, islice, 1 );
                 }
                 );
+
+                std::cout << "lambda0 from file: " << laser.m_lambda0_from_file << " | lambda0 from input: " << m_lambda0 << std::endl;
                 AMREX_ASSERT_WITH_MESSAGE(laser.m_lambda0_from_file == m_lambda0 && m_lambda0 != 0,
                 "The central wavelength of laser from openPMD file and other lasers must be identical");
             }
